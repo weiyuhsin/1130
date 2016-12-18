@@ -61,49 +61,72 @@
              background-image:url(http://lorempicsum.com/up/800/600/4);           
                                 /*http://lorempicsum.com/#futurama 很多圖片*//*改成800*600 */
             background-size:cover;
-            /*height: 600px;*/      /*方法一: 600px放在 置中*/   
-            padding-top:250px;      /*方法二: padding-top + padding-bottom +text-align:center →置中*/ 
-            padding-bottom:250px;   /*放在上面250px 置中*/
-            text-align:center;      /*置中*/
+            height: 600px;     /*方法一: 600px放在 置中*/   
+            /*padding-top:250px; */     /*方法二: padding-top + padding-bottom +text-align:center →置中*/ 
+            /*padding-bottom:250px; */  /*放在上面250px 置中*/
+            /*text-align:center; */     /*置中*/
 
-        }
-            
-       /*方法三:設 ↓ +header::before 與header .content →來置中
+                  
+       /*方法三:設 ↓ +header::before 與header .content →來置中*/
             text-align: center; 
-            display: inline-block;    /*設成有區塊與行內的*
-            vertical-align: middle;   /*置中*
-            font-size: 0;             /*字體大小
+            display: inline-block;    /*設成有區塊與行內的*/
+            vertical-align: middle;   /*置中*/
+            font-size: 0;             /*字體大小*/
         }
         header::before {
             content: "";
-            display: inline-block;    /*設成有區塊與行內的*
-            vertical-align: middle;   /*置中*
-            height: 100%;             /*全版 *
+            display: inline-block;    /*設成有區塊與行內的*/
+            vertical-align: middle;   /*置中*/
+            height: 100%;             /*全版 */
         }
         header .content {
-            font-size: 16px;         /*
-            display: inline-block;   /*設成有區塊與行內的*
-            vertical-align: middle;  /*
+            font-size: 16px;            /**/
+            display: inline-block;   /*設成有區塊與行內的*/
+            vertical-align: middle;  /*置中*/
             color:#fff; 
-        }    */
+            
+        } 
+        header .content h1 {
+        letter-spacing: 5px;
+        font-size: 60px;
+        }
+        header .content p {
+        letter-spacing: 2px;
+        margin-top: 10px;
+        margin-bottom: 60px;
+        color: #fff;
+        }
+        header .content a {
+        display: inline-block;
+        color: #fff;
+        padding: 15px 25px;
+        text-decoration: none;
+        border: 1px solid;
+
+        }
+
         
-        #about{
-            padding-top:80px;           /*背景框間格-上*/
-            padding-bottom:250px;       /*背景框間格-底*/ 
-            background-color: #e3e3e3;     /*背景色:灰色*/
+        #about {
+            padding-top:100px;           /*背景框間格-上*/
+            padding-bottom:100px;       /*背景框間格-底*/ 
+            background-color: #f5c0c0;     /*背景色:灰色*/
+            height:300px;                /*背景色:灰色大小*/
+            
+            }
+        
+
+        #about .col-3{               
+            text-align:center;          /*字體置中*/
+            padding:20px;               /*字體上下行距*/
+            
             }
         
         #about h3{
            margin-top:30px;          /**/
            margin-bottom:30px;
+            
            }   
-        
-        #about .col-3{               
-            text-align:center;          /*字體置中*/
-            padding:10px;               /*字體上下行距*/
-            }
-        
-       
+               
         
         #about p{
             font-size:14px;            /*p欄內容字體大小*/
@@ -129,7 +152,7 @@
             padding-bottom:100px;                   /*圖片下方間距*/
             text-align:center;                      /*圖片字間距*/
             color:#fff;                             /*圖片字顏色*/
-            background-size:cover;                  /*圖片左右全滿*/
+            /*background-size:cover; * /                /*圖片左右全滿*/
         }
         
         #ad p{
@@ -160,8 +183,9 @@
         #profile .thumb {                       /*ICON-GG*/
             display: inline-block;              /*設成有區塊與行內的*/
             vertical-align: middle;             /*ICON-GG 垂直對齊-置中*/
-            font-size: 20px;                    /*ICON-GG 大小20px*/
+            font-size: 16px;                    /*ICON-GG 大小16px*/
             width: 80px;                        /*ICON-GG 在左邊框中位於80px的位置*/  
+            
         }
         #profile .position {                    /*JOE DOE & CEO*/
             display: inline-block;              /*設成有區塊與行內的*/
@@ -180,7 +204,7 @@
         
         
         #blog{
-            background-color: #ddd;
+            background-color: #f5d6d6;
             padding-top:150px;
             padding-bottom:150px;
         }
