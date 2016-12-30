@@ -1,4 +1,4 @@
-@media screen and (min-width:1200px) {
+﻿@media screen and (min-width:1200px) {
     /*固定寬度*/
     .fixed-width {
         width: 1200px;
@@ -216,3 +216,5 @@
         margin-left: 20px;
     }
 }
+
+
