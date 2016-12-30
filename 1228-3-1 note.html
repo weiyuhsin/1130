@@ -809,6 +809,10 @@ I will try my best to help you.
 </body>
 </html>
 看結果
+Hello. Welcome to JavaScript Channel.Please feel free to ask any question in the message board. I will try my best to help you.
+
+
+
 例子說明：
 
 這個例子有兩個 <script> ， 一個在 <head> 範圍， 另一個在 <body> 範圍。
@@ -855,6 +859,16 @@ student("John", 16, false);
 </body>
 </html>
 看結果
+Student Data:
+
+Student Name : Tom ; Age : 18 ; Is graduated? true
+Student Name : John ; Age : 16 ; Is graduated? false
+End of student data.
+
+
+
+
+
 例子說明：
 
 student("Tom", 18, true);
@@ -898,6 +912,11 @@ document.write(" and I am " + my_age() + " years old.");
 </body>
 </html>
 看結果
+My name is Tom and I am 16 years old.
+
+
+
+
 例子說明：
 
 my_name() 和 my_age() 分別傳回 "Toy" 和 16 。
@@ -951,6 +970,17 @@ document.write("<br>f2 = ");
 document.write(f2);
 </script>
 看結果
+The variable 'myname' is defined in the first script tag.
+myname in first script tab = Tom
+myname in function1 = Tom 
+myname in second script tab = Tom
+f2 in function2 = variable in function2
+myname in the second tab = Tom 
+myname in body section = Tom 
+myname ouside html section = Tom
+f2 =
+
+
 例子說明：
 
 整頁只定義了兩個變數， 就是 f2 和 myname 。 myname 是在 <script> 以內定義的， 因此整頁範圍內也可以用 myname 這個變數。 但 f2 是 function2 以內定義的， 因此 f2 只能在 function2 以內存取。
@@ -1003,6 +1033,13 @@ value="Please Click me to see my name and value"
 onClick="bt_details(this)">
 </form>
 看結果
+Please Click me to see my name and value
+My name is hello
+My value is Please Click me to see my name and value
+My type is button
+
+
+
 例子說明：
 
 onClick="bt_details(this)"
@@ -1044,6 +1081,9 @@ function terminate() {
 <input type="button" value="hello" onClick="terminate()">
 </form>
 看結果
+Please Click me to see my name and value
+
+
 例子說明：
 
 第二句的 document.write 不會被執行， 因為上一句 return false 己經中終止了 terminate 函數。
