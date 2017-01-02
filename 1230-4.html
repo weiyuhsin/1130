@@ -7,8 +7,9 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">  <!--jQUERY語法的連結-->
      </script>     
      <script>   
+    $(document).ready(function(){
         $("p").hide();                          /*p先將資料隱藏*/
-            $("h1").click(function(){                   /*click按h1會動作*/$(document).ready(function(){
+            $("h1").click(function(){                   /*click按h1會動作*/
                   $(this).next().slideToggle();       /*$(this).next().slidetoggle(); 的this就是h1的下一個去執行隱藏→開啟動作*/
             });
          });           
