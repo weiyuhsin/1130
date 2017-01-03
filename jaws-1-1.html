@@ -1,8 +1,7 @@
 
 <!DOCTYPE html>
 <html lang=en>
-    <head>
-        
+<head>
         <meta charset=utf-8>
         <meta http-equiv=X-UA-Compatible content="IE=edge">
         <meta name=viewport content="width=device-width, initial-scale=1">
@@ -10,6 +9,21 @@
         <meta name=author content="">
         <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
         <title>Jawscable 線組加工/線材加工</title>
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- 可选的Bootstrap主题文件（一般不使用） -->
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        
+                
+        
         <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
         <link href=/Content/AssetsBS3/examples/justified-nav.css rel=stylesheet>
         <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
@@ -19,9 +33,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
     <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> 
         <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">  <!--jQUERY語法的連結-->
-     </script>   
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">  <!--jQUERY語法的連結-->     </script>        
+  
+  </head>      
+
    <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto');     
                      /*中文字體*/
@@ -170,9 +185,9 @@
 
 }     
        
-               .container {                      /*四邊形旋轉*/
-            width: 800px;
-            height: 400px;
+            .container {                      /*四邊形旋轉*/
+            width: 1200px;
+            height: 200px;
             position: relative;
             perspective: 1000px;
             margin: auto;
@@ -180,7 +195,7 @@
         }
         .carousel {
             width: 100%;
-            height: 100%;
+            height: 50%;
             position: absolute;
             transform-style: preserve-3d;
             animation:ro 10s infinite linear;
@@ -192,19 +207,19 @@
             background-image: linear-gradient(90deg,#666,#ccc);
         }
         .carousel .plane:nth-of-type(1){
-            transform: translateZ(823px);
+            transform: translateZ(840px);
         }
         .carousel .plane:nth-of-type(2){
-            transform: rotateY(90deg)translateZ(823px);
+            transform: rotateY(90deg)translateZ(740px);
         }
         .carousel .plane:nth-of-type(3){
-            transform: rotateY(180deg)translateZ(823px);
+            transform: rotateY(180deg)translateZ(740px);
         }
         .carousel .plane:nth-of-type(4){
-            transform: rotateY(240deg)translateZ(823px);
+            transform: rotateY(270deg)translateZ(740px);
         }
         .carousel .plane:nth-of-type(5){
-            transform: rotateY(360deg)translateZ(823px);
+            transform: rotateY(360deg)translateZ(740px);
         }
 
         @keyframes ro {                        /*100除12=8.3*/
@@ -214,7 +229,8 @@
             50% {transform: rotateY(90deg)}
             50% {transform: rotatez(180deg)}
             75% {transform: rotatey(180deg)}
-            75% {transform: rotateY(240deg)}
+            75% {transform: rotateY(270deg)}
+            100% {transform: rotateY(270deg)}
             100% {transform: rotateY(360deg)}
 
             
@@ -401,22 +417,7 @@
                 
    
 
-    <div class="container">  /*多邊形*/
-        <div class="carousel">
-            <div class="plane">
-                <img src="images/01.jpg"  alt="" width="1200" height="400" alt=""></div>
-            <div class="plane">
-                <img src="images/02.jpg"  alt="" width="1200" height="400" alt="">
-            </div>
-            <div class="plane">
-                <img src="images/03.jpg"  alt="" width="1200" height="400" alt="">
-            </div>
-            <div class="plane">
-                <img src="images/04.jpg"  alt="" width="1200" height="400" alt="">
-            </div>
 
-        </div>
-    </div>
            
                 
                 
@@ -443,7 +444,22 @@
             
         <div class="box"> 
             <div class=col-lg-4>
-                abc
+                    <div class="container">  /*多邊形*/
+        <div class="carousel">
+            <div class="plane">
+                <img src="images/01.jpg"  alt="" width="1800" height="400" alt=""></div>
+            <div class="plane">
+                <img src="images/02.jpg"  alt="" width="1800" height="400" alt="">
+            </div>
+            <div class="plane">
+                <img src="images/03.jpg"  alt="" width="1800" height="400" alt="">
+            </div>
+            <div class="plane">
+                <img src="images/04.jpg"  alt="" width="1800" height="400" alt="">
+            </div>
+
+        </div>
+    </div>
              </div>
             
             
