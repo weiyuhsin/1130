@@ -8,9 +8,6 @@
         <meta name=viewport content="width=device-width, initial-scale=1">
         <meta name=description content="">
         <meta name=author content="">
-        
-        
-        
         <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
         <title>Jawscable 線組加工/線材加工</title>
         <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
@@ -19,28 +16,39 @@
         
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js">
-        </script> 
-    <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js>
-        </script> 
-        
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+    <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> 
         <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">  <!--jQUERY語法的連結-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">  <!--jQUERY語法的連結-->
      </script>   
         
    <style>
-              .container{
-           width: 1500px;
+        @import url('https://fonts.googleapis.com/css?family=Roboto');     
+                     /*中文字體*/
+        @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+                     /*英文字體*/             
+        
+        /*CSS RESET*/                    /*要製做一個網頁，但要先將網頁設定預設值*/
+        
+        * {
+            box-sizing: border-box;
+            font-family: "Roboto","Noto Sans TC",sans-serif;    /*字體*/
+        }
+          
+       
+       .container{
+           width: 100%;
        }   
+       .masthead{
+           width: 100%;    
+       }
+       .drop-down-menu{
+           width: 100%;    
+       }
+              
        
-       
-       
-       
-       
-       
-             
- ul { /* 取消ul預設的內縮及樣式 */
+ <!--          
+     ul { /* 取消ul預設的內縮及樣式 */
         margin: 0;
         padding: 0;
         list-style: none;
@@ -71,7 +79,7 @@
         background-color: #fff;
         color: rgb(82, 89, 248);
         display: block;
-        padding: 0 90px;
+        padding: 0 95px;
         text-decoration: none;
         line-height: 40px;       
 
@@ -112,7 +120,7 @@
     
     
   ul.drop-down-menu ul { /*隱藏次選單*/
-        left: 99999px;
+        left: 90px;
         opacity: 0;
         -webkit-transition: opacity 0.3s;
         transition: opacity 0.3s;
@@ -135,38 +143,93 @@
     }
          
        
-   
-       
-
-       
-       
-        /* @media screen and (min-width:1200px){ 
-            .fixed-width{    
-                 width: 1200px;/*固定寬*
-                  margin:auto;
-            }
-       
-
-       .col-2 {                         /*2欄頁面設法*   /*1200/3=400*
-            float:left;
-            width:600px;    
-            margin-left:10px;                       
-            margin-right:10px;    
-            }
-        .clearfix:: after{               /*浮動修復*
-            content:"";                  /*虛擬元素*
-            display:block; 
-            clear:both;
+         footer .logo {                     /*最底層logo*/
+            width: 100px;                  /*最底層logo寬度*/
+            height: 70px;                  /*最底層logo高度*/
+            background-color: #ccc;        /*最底層logo顏色*/
+            float: left;                   /*最底層logo浮動靠左*/
+            margin-left: 100px;
         }
-        .full-width{                     /*全寬滿版*
+        footer .copyright {     
+            line-height: 20px;             /*最底層LCC間格高度*/
+            float: left;                   /*最底層LCC浮動靠左*/
+            font-size: 14px;               /*最底層LCC字體大小*/
+            margin-left: 50px;             /*最底層LCC左邊外距30px開始*/
+            text-align: center;
+        }
+        footer .menu { 
+            float: right;                  /*最底層menu (about)浮動靠右 */
+            margin-right: 100px;
+        }
+        footer .menu a {                   /*最底層menu (about)內文 */
+            line-height: 100px;             /*最底層menu (about)內文間格高度 */
+            text-decoration: none;         /*最底層menu (about)內文不要底線 */
+            color: #333;                   /*最底層menu (about)內文顏色 */
+            margin-left: 20px;             /*最底層menu (about)內文間格左邊數20px再下一段文字 */
+}
+
+}     
+       
+               .container {                      /*四邊形旋轉*/
+            width: 800px;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+            margin: auto;
+            margin-top: 200px;
+        }
+        .carousel {
             width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation:ro 10s infinite linear;
         }
-        .fixed-width{                    /*固定寬*
-            width: 1200px;
-            margin:auto;
+        .carousel .plane {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: linear-gradient(90deg,#666,#ccc);
         }
-       */
-        
+        .carousel .plane:nth-of-type(1){
+            transform: translateZ(823px);
+        }
+        .carousel .plane:nth-of-type(2){
+            transform: rotateY(90deg)translateZ(823px);
+        }
+        .carousel .plane:nth-of-type(3){
+            transform: rotateY(180deg)translateZ(823px);
+        }
+        .carousel .plane:nth-of-type(4){
+            transform: rotateY(240deg)translateZ(823px);
+        }
+        .carousel .plane:nth-of-type(5){
+            transform: rotateY(360deg)translateZ(823px);
+        }
+
+        @keyframes ro {                        /*100除12=8.3*/
+            0% {transform: rotateY(0deg)}
+            25% {transform: rotateY(0deg)}
+            25% {transform: rotateY(90deg)}
+            50% {transform: rotateY(90deg)}
+            50% {transform: rotatez(180deg)}
+            75% {transform: rotatey(180deg)}
+            75% {transform: rotateY(240deg)}
+            100% {transform: rotateY(360deg)}
+
+            
+            
+            
+            
+            
+            
+        }
+
+       
+
+            
+            
+
     </style>      
         
         
@@ -174,7 +237,8 @@
         <div class=container>
             
             <div class=masthead>
-                <h3 class=text-muted>JAWSCABLE</h3>
+                <!--<h3 class=text-muted>JAWSCABLE</h3> -->
+                <img src="Jawsimages/logo1.png" alt="Jawsstech" width="300">
                 
                 
       <ul class="drop-down-menu">
@@ -182,14 +246,15 @@
         </li>
         <li><a href="#">About Us<br>關於我們</a>
             <ul>
-                <li><a href="#">服務據點</a>
+                <li><a href="#">各項認證與專利</a>
                 </li>
-                <li><a href="#">服務客戶</a>
+                <li><a href="#">工廠設備</a>
                 </li>
-                <li><a href="#">服務地區</a>
+                <li><a href="#">品質管理</a>
                 </li>
-                <li><a href="#">徵才資訊</a>
+                <li><a href="#">OEM/ODM服務</a>
                 </li>
+
             </ul>
         </li>
       
@@ -210,6 +275,10 @@
                 </li>
                 <li><a href="#">線材加工組裝 (Cable Assembly)</a>
                     <ul>
+                        <li><a href="#">USB 3.0/ 3.1 Cable</a>
+                        </li>                         
+                        <li><a href="#">USB Cable</a>
+                        </li>                         
                         <li><a href="#">HDMI Cable</a>
                         </li>
                         <li><a href="#">Displayport Cables</a>
@@ -220,7 +289,9 @@
                         </li>
                         <li><a href="#">LVDS Cables</a>
                         </li>
-                        <li><a href="#">SAS/ATA</a>
+                        <li><a href="#">CAT 5/6 Cables</a>
+                        </li>
+                        <li><a href="#">SAS/ATA Cable</a>
                         </li>                       
                         <li><a href="#">SCSI Cable</a>
                         </li>
@@ -229,9 +300,7 @@
                         <li><a href="#">IEEE1394 Cable</a>
                         </li>
                         <li><a href="#">AUDIO/VIDEO Cables</a>
-                        </li>                              
-                        <li><a href="#">USB Cable</a>
-                        </li> 
+                        </li>      
                         <li><a href="#">BNC Cable </a> 
                         </li>
                         <li><a href="#">VGA Cables</a>
@@ -242,7 +311,7 @@
                         </li>
                         <li><a href="#">Mutimedia Cable</a>
                         </li>
-                        <li><a href="#">FFC Cable</a>
+                        <li><a href="#">FFC/FPC Cable</a>
                         </li>
                         <li><a href="#">DIN Cable</a>
                         </li>
@@ -322,27 +391,40 @@
                 
                 
                 
+                   
+                      
+                         
+                            
+                               
+                                     
                 
                 
-                
-                
-                
-                
-                
+   
 
+    <div class="container">  /*多邊形*/
+        <div class="carousel">
+            <div class="plane">
+                <img src="images/01.jpg"  alt="" width="1200" height="400" alt=""></div>
+            <div class="plane">
+                <img src="images/02.jpg"  alt="" width="1200" height="400" alt="">
+            </div>
+            <div class="plane">
+                <img src="images/03.jpg"  alt="" width="1200" height="400" alt="">
+            </div>
+            <div class="plane">
+                <img src="images/04.jpg"  alt="" width="1200" height="400" alt="">
+            </div>
+
+        </div>
+    </div>
+           
                 
                 
                 
                 
                 
                 
-                
-                
-                
-                
-                
-                
-                <div role=navigation>
+              <!--  <div role=navigation>
                     <ul class="nav nav-justified">
                         <li class=active>
                             <a href=#>Home<br>首頁</a>
@@ -357,7 +439,7 @@
                             <a href=#>Contact Us<br>與我們連繫</a>
                     </ul>
                 </div>
-            </div>
+            </div>-->
             
         <div class="box"> 
             <div class=col-lg-4>
@@ -449,26 +531,72 @@
                            
             <div class=row>
                 <div class="col-lg-3 col-md-offset-1">
-                    <h2>Safari bug warning!</h2>
+                    <h2>線材加工組裝</h2>
                     <p class=text-danger>As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.<p>
                     <a class="btn btn-primary" href=# role=button>View details &raquo;</a>
                 </div>
                 <div class="col-lg-3 ">
-                    <h2>Heading</h2>
+                    <h2>線組加工組裝</h2>
                     <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.<p>
                     <a class="btn btn-primary" href=# role=button>View details &raquo;</a>
                 </div>
                 <div class="col-lg-3 ">
-                    <h2>Heading</h2>
+                    <h2>連接器</h2>
                     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.<p>
                     <a class="btn btn-primary" href=# role=button>View details &raquo;</a>
                 </div>
             </div>
+
+        
+ 
+        
+        
+                    <div class=row>
+                <div class="col-lg-3 col-md-offset-1">
+                    <h2>最新消息</h2>
+                    <p class=text-danger><h4>USB 3.0 開始量產~圓線、扁線板上母座已經正式量產，歡迎洽詢訂購!!</h4><p><p>
+                    <a class="btn btn-primary" href=# role=button>更多消息 &raquo;</a>
+                </div>
+                <div class="col-lg-3 ">
+                    <h2>OEM/ODM專案訂單</h2>
+                    <p><h4>我們提供 OEM/ODM 客製化服務，包含設計、標籤、生產、包裝、檢驗和送貨等全方位服務。</h4><p>
+                    <a class="btn btn-primary" href=# role=button>更多服務介紹 &raquo;</a>
+                </div>
+                <div class="col-lg-3 ">
+                    <h2>與我們連繫</h2>
+                    <p><h4>對於我們的產品有任何疑問？<br>歡迎來電/來信洽詢。</h4><br>
+                    魏小姐<br>
+                    E-mail: jawss20@jawscable.com <br>
+                    Tel: 02-8692-6686 分機16<br>
+                    Fax: 02-8692-6343<br>
+                    新北市汐止區大同路二段171號3樓之3<br><br>
+                    <p>
+                    <a class="btn btn-primary" href=# role=button>與我們連繫 &raquo;</a>
+                </div>
+            </div>
             <footer class=footer>
-                <p>&copy; Company 2014</footer></div>
+                <div class="logo"></div>
+                <div class="copyright">
+                <p>&copy; Copyright © 兆鈺科技有限公司<br>               
+                    Tel: 02-8692-6686 Fax: 02-8692-6343<br>
+                    新北市汐止區大同路二段171號3樓之3<br>
+                    E-mail: jawss20@jawscable.com <br>
+                </div>
+                <div class="menu">
+                <a href="#">About</a>
+                <a href="#">FAQ</a>
+                <a href="#">Service</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+                </div>
+                </footer></div>
         <script src=/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js></script>
         
-   
+        
+        
+
+        
+        
         
         
  
@@ -501,8 +629,10 @@ http://www.yejey.net/tw/product/2 有用途
 http://www.zfe.com.tw/%E7%B7%9A%E6%9D%90%E5%8A%A0%E5%B7%A5/product05.html  種類多
 http://www.cableassembly.com.tw/chinese/series1.htm 簡單版      
 http://www.ta1989.com.tw/WIRESCABLE-category-57.html 系列
-
-       
+http://www.king-lai.com.tw/ 金來
+http://www.soline.com.tw/page1.php 分類格式好
+http://www.wireharness.com.tw/index.asp?lang=1 網頁好
+http://www.chin-sheng.com.tw/ch_index.php有介紹 網頁好      
               
                      
                             
