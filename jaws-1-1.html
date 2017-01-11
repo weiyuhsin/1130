@@ -24,33 +24,57 @@
         
                 
         
-        <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
-        <link href=/Content/AssetsBS3/examples/justified-nav.css rel=stylesheet>
-        <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
-        
+    <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
+    <link href=/Content/AssetsBS3/examples/justified-nav.css rel=stylesheet>
+        <link rel="stylesheet" href="jquery.bxslider.css"> <!--輪播css語法1 要加jQuery2.2.4語法 & 輪播js語法-->      
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
     <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> 
-        <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">  <!--jQUERY語法的連結-->     </script>        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>  <!--jQUERY語法的連結--> 
+        <script src="jquery.bxslider.min.js"></script>            <!--輪播js語法2 要加jQuery2.2.4語法 & 輪播css語法-->  
+        
+    
+        
+        
   
   </head>      
 
+      <script>                              /*輪播語法*/
+        $(function(){
+            $(".slider").bxSlider({
+                mode:"fade",
+                auto:true,
+                pause:6000,
+                speed:300,
+                captions:true,
+//                pager:false,
+                pagerType:"long"
+//                controls:false
+            });
+        })
+    </script>
+    <style>
+        header {                    /*輪播語法*/
+            width: 1500px;
+            margin: auto;
+        }
+        header ul {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+  
+  
+  
    <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto');     
-                     /*中文字體*/
-        @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
-                     /*英文字體*/             
-        
-        /*CSS RESET*/                    /*要製做一個網頁，但要先將網頁設定預設值*/
-        
+      @import url('https://fonts.googleapis.com/css?family=Roboto');   /*中文字體*//*CSS RESET要製做一個網頁，但要先將網頁設定預設值*/
+      @import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css); /*英文字體*//*CSS RESET要製做一個網頁，但要先將網頁設定預設值*/    
         * {
             box-sizing: border-box;
             font-family: "Roboto","Noto Sans TC",sans-serif;    /*字體*/
         }
           
-       
        .container{
            width: 100%;
        }   
@@ -60,7 +84,38 @@
        .drop-down-menu{
            width: 100%;    
        }
-              
+       
+   
+        nav{
+            position:fixed;              /*將最上面的選單固定在網頁最上面*/
+            background-color:#faf;       /*粉紅欄 有蓋過圖片*/
+        }      
+        
+        nav .logo{
+            float:left;                 /*logo浮動靠左*/
+            width: 100px;               /*logo 寬*/
+            height: 100px;              /*logo 高*/
+            background-color: #aaa;     /*logo背景色*/
+            
+        }
+        nav .menu{                      /*menu*/
+            float:right;                /*menu 浮動靠右*/
+        }
+        
+        nav .menu ul{                   /*menu*/
+            margin: 0;                  /*menu外距*/
+            padding: 0;                 /*menu內距*/
+        }
+        
+        nav .menu li{
+            float:left;                /*menu li選單的About Us浮動靠左*/
+            list-style-type:none;      /*不要項目*/
+        }
+       
+       
+       
+       
+       
        
  <!--          
      ul { /* 取消ul預設的內縮及樣式 */
@@ -100,11 +155,11 @@
 
     }
     ul.drop-down-menu a:hover { /* 滑鼠滑入按鈕變色*/
-        background-color: #ef5c28;
+        background-color: #f4602c;
         color: #fff;
     }
     ul.drop-down-menu li:hover > a { /* 滑鼠移入次選單上層按鈕保持變色*/
-        background-color: #ef5c28;
+        background-color: #4d98f0;    /*滑入顏色*/
         color: #fff;
     }
     
@@ -115,7 +170,7 @@
         z-index: 99;
         left: -1px;
         top: 100%;
-       min-width: 180px;
+       min-width: 180px; /*第一層格寬度*/
     }
 
     ul.drop-down-menu ul li {
@@ -128,7 +183,7 @@
 
     ul.drop-down-menu ul ul { /*第三層以後的選單出現位置與第二層不同*/
         z-index: 999;
-        top: 10px;
+        top: 0px;   /*第三層上下偏移*/
         left: 90%;
     }
     
@@ -137,14 +192,14 @@
   ul.drop-down-menu ul { /*隱藏次選單*/
         left: 90px;
         opacity: 0;
-        -webkit-transition: opacity 0.3s;
-        transition: opacity 0.3s;
+        -webkit-transition: opacity 1s;  /*滑入秒數*/
+        transition: opacity 2s;
     }
 
     ul.drop-down-menu li:hover > ul { /* 滑鼠滑入展開次選單*/
         opacity: 1;
-        -webkit-transition: opacity 0.3s;
-        transition: opacity 0.3s;
+        -webkit-transition: opacity 1s;        /*滑入秒數*/
+        transition: opacity 2s;
         left: -1px;
         border-right: 5px;
     }
@@ -154,7 +209,7 @@
     }
 
     ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
-        left: 90%;
+        left: 60%;   /*第二層格左偏60*/
     }
          
        
@@ -189,13 +244,46 @@
             
             
             
+         /*    nav{
+            position:fixed;              /*將最上面的選單固定在網頁最上面*
+            background-color:#faf;       /*粉紅欄 有蓋過圖片*
+        }      
+        
+        nav .logo{
+            float:left;                 /*logo浮動靠左*
+            width: 100px;               /*logo 寬*
+            height: 100px;              /*logo 高*
+            background-color: #aaa;     /*logo背景色*
             
-      
-
-       
-
-            
-            
+        }
+        nav .menu{                      /*menu*
+            float:right;                /*menu 浮動靠右*
+        }
+        
+        nav .menu ul{                   /*menu*
+            margin: 0;                  /*menu外距*
+            padding: 0;                 /*menu內距* 
+        }
+        
+        nav .menu li{
+            float:left;                /*menu li選單的About Us浮動靠左*
+            list-style-type:none;      /*不要項目*
+        }       
+        <nav class="full-width clearfix">
+     <div class="fixed-width">
+      <div class="logo"></div>
+        <div class="menu">
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Journal</a></li>
+              <li><a href="#">Contact Us</a></li>
+                          
+          </ul>
+        </div>
+      </div>
+  </nav>         */
+    
 
     </style>      
         
@@ -204,9 +292,24 @@
         <div class=container>
             
             <div class=masthead>
-                <!--<h3 class=text-muted>JAWSCABLE</h3> -->
-                <img src="Jawsimages/logo1.png" alt="Jawsstech" width="300">
-                
+               <div class="col-md-6 column">
+                 
+					<ul class="breadcrumb">
+					    <img src="Jawsimages/logo1.png" alt="Jawsstech" width="300">
+						<li>
+							 <a href="#">Home</a>
+						</li>
+						<li>
+							 <a href="#">Products</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div> 
+               
+                 
+                     
                 
       <ul class="drop-down-menu">
          <li><a href="#">Home<br>首頁</a>
@@ -356,7 +459,9 @@
         </li>
     </ul> 
                 
-                
+   <div>
+       <p></p>
+   </div>             
                 
                    
                       
@@ -392,10 +497,19 @@
                     </ul>
                 </div>
             </div>-->
-            
+        
+    <header>
+        <ul class="slider">        <!--輪播-->
+            <li><img src="https://images.unsplash.com/photo-1447965397908-09312827f0bb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=7978bee50833f2482a4390e575a541e7" title="HELLO"></li>
+            <li><img src="https://images.unsplash.com/photo-1445503061048-e03cd48b1f11?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=1e9d385a85f7f81ea2d174c9bf6c7fd4" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1458519488348-81c0467ebb98?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=5355cf2f4685acffba57e7971e22f576" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1459196088695-2eef93d1c69c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=a21ed52d37e321f289d2d95304125dbc" alt=""></li>
+        </ul>
+    </header>    
+                    
         <div class="box"> 
             <div class=col-lg-4>
-                 sdfsdf
+
              </div>
             
             
@@ -421,13 +535,66 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          線材加工類
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      
+                    <ul>
+                        <li><a href="#">USB 3.0/ 3.1 Cable</a>
+                        </li>                         
+                        <li><a href="#">USB Cable</a>
+                        </li>                         
+                        <li><a href="#">HDMI Cable</a>
+                        </li>
+                        <li><a href="#">Displayport Cables</a>
+                        </li>
+                        <li><a href="#">DVI Cables</a>
+                        </li>
+                        <li><a href="#">LAN Cables</a>
+                        </li>
+                        <li><a href="#">LVDS Cables</a>
+                        </li>
+                        <li><a href="#">CAT 5/6 Cables</a>
+                        </li>
+                        <li><a href="#">SAS/ATA Cable</a>
+                        </li>                       
+                        <li><a href="#">SCSI Cable</a>
+                        </li>
+                        <li><a href="#">Flat Cables</a>
+                        </li>
+                        <li><a href="#">IEEE1394 Cable</a>
+                        </li>
+                        <li><a href="#">AUDIO/VIDEO Cables</a>
+                        </li>      
+                        <li><a href="#">BNC Cable </a> 
+                        </li>
+                        <li><a href="#">VGA Cables</a>
+                        </li>                               
+                        <li><a href="#">Sensor Cable</a>
+                        </li>
+                        <li><a href="#">SCSI Cable</a>
+                        </li>
+                        <li><a href="#">Mutimedia Cable</a>
+                        </li>
+                        <li><a href="#">FFC/FPC Cable</a>
+                        </li>
+                        <li><a href="#">DIN Cable</a>
+                        </li>
+                        <li><a href="#">Digtal Cable</a>
+                        </li>
+                        <li><a href="#">Computer Cable</a>
+                        </li>
+                        <li><a href="#">RF Coaxial Cable</a>
+                        </li>
+                        <li><a href="#">Waterproof Cable</a>
+                        </li>
+                        <li><a href="#">Waterproof Cable</a>
+                        </li>
+       
+        
       </div>
     </div>
   </div>
@@ -435,7 +602,7 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+          線組加工類
         </a>
       </h4>
     </div>
@@ -449,7 +616,7 @@
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
+          連結器類
         </a>
       </h4>
     </div>
@@ -459,6 +626,22 @@
       </div>
     </div>
   </div>
+  
+    <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          OEM/ODM
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  
 </div>
                
                   
