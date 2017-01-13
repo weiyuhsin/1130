@@ -9,38 +9,66 @@
         <meta name=author content="">
         <link rel=icon href=/Content/AssetsBS3/img/favicon.ico>
         <title>Jawscable 線組加工/線材加工</title>
-        <!-- 新 Bootstrap 核心 CSS 文件 -->
-<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
- 
-<!-- 可选的Bootstrap主题文件（一般不使用） -->
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
- 
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
- 
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
-        
-                
-        
+<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"><!-- 新 Bootstrap 核心 CSS 文件 -->
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script><!-- 可选的Bootstrap主题文件（一般不使用） -->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script><!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">  <!--animate css語法--><!--搜Animate.css 多種效果→https://daneden.github.io/animate.css/→多效果滑入滑出等效果-->    
     <link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css rel=stylesheet>
     <link href=/Content/AssetsBS3/examples/justified-nav.css rel=stylesheet>
-        <link rel="stylesheet" href="jquery.bxslider.css"> <!--輪播css語法1 要加jQuery2.2.4語法 & 輪播js語法-->      
+    <link rel="stylesheet" href="jquery.bxslider.css"> <!--輪播css語法1 要加jQuery2.2.4語法 & 輪播js語法-->      
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
     <script src=/Scripts/AssetsBS3/ie-emulation-modes-warning.js></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>  <!--jQUERY語法的連結--> 
-        <script src="jquery.bxslider.min.js"></script>            <!--輪播js語法2 要加jQuery2.2.4語法 & 輪播css語法-->  
-        
+    <script src="jquery.bxslider.min.js"></script>            <!--輪播js語法2 要加jQuery2.2.4語法 & 輪播css語法-->  
+
+<!-- bxSlider Javascript file -->
+<script src="/js/jquery.bxslider.min.js"></script><!--輪播-->  
+<!-- bxSlider CSS file -->
+<link href="/lib/jquery.bxslider.css" rel="stylesheet"/>   <!--輪播--> 
     
         
         
   
-  </head>      
+  </head>  
+          <script>             /*menu & gotop 固定語法*/
+        $(function(){
+            $("div ul li a").click(function(){    /*當nav的a 正在做click點擊的時候做下面的效果*//*click點擊 scroll捲動 滑過*/
+                var _link = $(this).data("link");
+                var _offset = $("#"+_link).offset().top;
+                $("html,body").animate({
+                    scrollTop:_offset
+                });
+                return false; /*方法一：做完上面的語法之後，讓a失效→就不會有到頁首的閃跳*/
+            });
+            $("#gotop").hide(); /*先將gotop隱藏*/
+            $(window).scroll(function(){        /*當在使用windows捲動時*/
+                if($(this).scrollTop()>200){    /*當this(當下)離最上面超過200時執行下面*/
+                  $("#gotop").fadeIn();       /*方法一：同樣時執行滑入*//*fadeIn() 滑入  show() 跳出*/
+                }else{
+        //            $("#gotop"),fadeOut();      /*方法一：不然就滑出*//*fadeOut() 滑出 hide() 消失*/
+                    $("#gotop").addClass("animated infinite bounce");
+                }
+            });
+            
+        //    $("#gotop").click(function(){     /*當gotop選項 正在做click點擊的時候做下面的效果*/   
+        //        $("html,body").animate({     /*將html,body 去做動畫*/
+        //            scrollTop:0              /*回到最上層*/   
+        //        });
+        //       return false;               /*方法一：做完上面的語法之後，讓a失效→就不會有到頁首的閃跳*/
+        //    });
+        //    console.log(scrollTop);
+        })
+        
+        
+        
+    </script>
+              
 
-      <script>                              /*輪播語法*/
+      <script>                              /*輪播語法1*/
         $(function(){
             $(".slider").bxSlider({
                 mode:"fade",
@@ -53,10 +81,25 @@
 //                controls:false
             });
         })
+          
+        
+     
+          /*輪播語法2
+        $(document).ready(function(){
+        $('.bxslider').bxSlider();
+            minSlides: 3,
+            maxSlides: 4,
+            slideWidth: 170,
+            slideMargin: 10
+        });    */
+        
+        
     </script>
+    
+    
     <style>
         header {                    /*輪播語法*/
-            width: 1500px;
+            width: 100%;
             margin: auto;
         }
         header ul {
@@ -75,9 +118,7 @@
             font-family: "Roboto","Noto Sans TC",sans-serif;    /*字體*/
         }
           
-       .container{
-           width: 100%;
-       }   
+  
        .masthead{
            width: 100%;    
        }
@@ -85,56 +126,75 @@
            width: 100%;    
        }
        
-   
-        nav{
-            position:fixed;              /*將最上面的選單固定在網頁最上面*/
-            background-color:#faf;       /*粉紅欄 有蓋過圖片*/
-        }      
-        
-        nav .logo{
-            float:left;                 /*logo浮動靠左*/
-            width: 100px;               /*logo 寬*/
-            height: 100px;              /*logo 高*/
-            background-color: #aaa;     /*logo背景色*/
+           
+              
+       .container{                         /*表頭*/   
+           background-color: rgb(255, 255, 255);
+           width: 100%;
+           height: 100px;
+           margin:auto;
+       }
+
+        .breadcrumb img { 
+            float: left;                  /*最頂層menu (about)浮動靠右 */
+            margin-right: 800px;
+            height: 80px;
+        }
+        .breadcrumb li { 
+            float: left;                  /*最頂層menu (about)浮動靠右 */
+            margin-right: 10px;
+            padding: 1px;    
+        }
+        .breadcrumb a {                   /*最頂層menu (about)內文 */
+            line-height: 100px;             /*最頂層menu (about)內文間格高度 */
+            text-decoration: none;         /*最頂層menu (about)內文不要底線 */
+            color: #333;                   /*最頂層menu (about)內文顏色 */
+            margin-left: 20px;             /*最頂層menu (about)內文間格左邊數20px再下一段文字 */
             
         }
-        nav .menu{                      /*menu*/
-            float:right;                /*menu 浮動靠右*/
-        }
-        
-        nav .menu ul{                   /*menu*/
-            margin: 0;                  /*menu外距*/
-            padding: 0;                 /*menu內距*/
-        }
-        
-        nav .menu li{
-            float:left;                /*menu li選單的About Us浮動靠左*/
-            list-style-type:none;      /*不要項目*/
-        }
        
+
+       
+       
+       
+       
+       #gotop{                         /*menu 選單 top*/   
+            display:block;             /*行內轉區塊*/  /*如是display:none; →gotop的行內一開始消失   */
+            width: 60px;               /*區塊的寬*/
+            height: 60px;              /*區塊的高*/
+            background-color: #afafaf;    /*區塊的顏色*/
+            color:#eee;                /*字體顏色*/
+            text-align:center;         /*文字左右置中*/
+            line-height: 60px;         /*文字上下60px*/
+            position:fixed;            /*top固定在同一個地方*/
+            right:20px;                /*右邊數來20px*/
+            bottom:20px;               /*下面數來20px*/
+           /* visibility:hidden;        /*一開始行內top會消失*/
+            
+        }
        
        
        
        
        
  <!--          
-     ul { /* 取消ul預設的內縮及樣式 */
+     ul {                         /* 取消ul預設的內縮及樣式 */
         margin: 0;
         padding: 0;
         list-style: none;
     }
 
     ul.drop-down-menu {
-        border: #ccc 1px solid;
+        border: #ccc 1px solid;     /*第一層外框色 橫 粗細*/
         display: inline-block;
         font-family: 'Open Sans', Arial, sans-serif;
-        font-size: 15px;
+        font-size: 15px;                /*第一層字體大小*/
     }
 
     ul.drop-down-menu li {
         position: relative;
         white-space: nowrap;
-        border-right: #ccc 1px solid;
+        border-right: #fffefe 1px solid;  /*第一層外框色 直 粗細*/
     }
 
     ul.drop-down-menu > li:last-child {
@@ -142,16 +202,16 @@
     }
 
     ul.drop-down-menu > li {
-        float: left; /* 只有第一層是靠左對齊*/
+        float: left; /* 只有第一層是靠左順序對齊*/
     }
 
      ul.drop-down-menu a {
         background-color: #fff;
         color: rgb(82, 89, 248);
         display: block;
-        padding: 0 95px;
+        padding: 0 75px;   /*第一層外框大小*/
         text-decoration: none;
-        line-height: 40px;       
+        line-height: 50px;   /*字距上下*/    
 
     }
     ul.drop-down-menu a:hover { /* 滑鼠滑入按鈕變色*/
@@ -183,8 +243,9 @@
 
     ul.drop-down-menu ul ul { /*第三層以後的選單出現位置與第二層不同*/
         z-index: 999;
-        top: 0px;   /*第三層上下偏移*/
+        top: 50px;   /*第三層上下偏移*/
         left: 90%;
+        background-color: #7db9ff;
     }
     
     
@@ -200,20 +261,24 @@
         opacity: 1;
         -webkit-transition: opacity 1s;        /*滑入秒數*/
         transition: opacity 2s;
-        left: -1px;
-        border-right: 5px;
+        left: 50px;                          /*第二層靠左偏移*/
+        border-right: 75px;
     }
 
     ul.drop-down-menu li:hover > ul ul { /* 滑鼠滑入之後、次選單之後的選單依舊隱藏*/
         left: 99999px;
     }
 
-    ul.drop-down-menu ul li:hover > ul { /* 第二層之後的選單展開位置*/
-        left: 60%;   /*第二層格左偏60*/
+    ul.drop-down-menu ul li:hover > ul { /* 第三層之後的選單展開位置*/
+        left: 50px;   /*第三層格左偏60*/
     }
          
+        
+       footer{
+           background-color: #aaa;
+       }
        
-         footer .logo {                     /*最底層logo*/
+        footer .logo {                     /*最底層logo*/
             width: 100px;                  /*最底層logo寬度*/
             height: 70px;                  /*最底層logo高度*/
             background-color: #ccc;        /*最底層logo顏色*/
@@ -226,6 +291,7 @@
             font-size: 14px;               /*最底層LCC字體大小*/
             margin-left: 50px;             /*最底層LCC左邊外距30px開始*/
             text-align: center;
+            width: 60%;
         }
         footer .menu { 
             float: right;                  /*最底層menu (about)浮動靠右 */
@@ -236,53 +302,9 @@
             text-decoration: none;         /*最底層menu (about)內文不要底線 */
             color: #333;                   /*最底層menu (about)內文顏色 */
             margin-left: 20px;             /*最底層menu (about)內文間格左邊數20px再下一段文字 */
-}
+        }
+       
 
-}     
-       
-       
-            
-            
-            
-         /*    nav{
-            position:fixed;              /*將最上面的選單固定在網頁最上面*
-            background-color:#faf;       /*粉紅欄 有蓋過圖片*
-        }      
-        
-        nav .logo{
-            float:left;                 /*logo浮動靠左*
-            width: 100px;               /*logo 寬*
-            height: 100px;              /*logo 高*
-            background-color: #aaa;     /*logo背景色*
-            
-        }
-        nav .menu{                      /*menu*
-            float:right;                /*menu 浮動靠右*
-        }
-        
-        nav .menu ul{                   /*menu*
-            margin: 0;                  /*menu外距*
-            padding: 0;                 /*menu內距* 
-        }
-        
-        nav .menu li{
-            float:left;                /*menu li選單的About Us浮動靠左*
-            list-style-type:none;      /*不要項目*
-        }       
-        <nav class="full-width clearfix">
-     <div class="fixed-width">
-      <div class="logo"></div>
-        <div class="menu">
-          <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">Journal</a></li>
-              <li><a href="#">Contact Us</a></li>
-                          
-          </ul>
-        </div>
-      </div>
-  </nav>         */
     
 
     </style>      
@@ -290,11 +312,9 @@
         
     <body>
         <div class=container>
-            
             <div class=masthead>
-               <div class="col-md-6 column">
-                 
-					<ul class="breadcrumb">
+               <div class="col-md-50 column">
+  				<ul class="breadcrumb">
 					    <img src="Jawsimages/logo1.png" alt="Jawsstech" width="300">
 						<li>
 							 <a href="#">Home</a>
@@ -305,6 +325,7 @@
 						<li>
 							<a href="#">Contact Us</a>
 						</li>
+						<a href="#" id="gotop" >top</a> <!--a是行內 所以css id要用#gotop--> <!--先命名class="animated"以後設css就可以不用再一直打-->
 					</ul>
 				</div> 
                
@@ -312,9 +333,9 @@
                      
                 
       <ul class="drop-down-menu">
-         <li><a href="#">Home<br>首頁</a>
+         <li><a href="#">Home 首頁</a>
         </li>
-        <li><a href="#">About Us<br>關於我們</a>
+        <li><a href="#">About Us 關於我們</a>
             <ul>
                 <li><a href="#">各項認證與專利</a>
                 </li>
@@ -328,7 +349,7 @@
             </ul>
         </li>
       
-        <li><a href="#">Products<br>產品</a>
+        <li><a href="#">Products 產品</a>
             <ul>
                 <li><a href="#">線組加工組裝 (Wire Harnesses)</a>
                     <ul>
@@ -404,40 +425,55 @@
                     <ul>
                         <li><a href="#"></a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">DVI Connectors</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">HDMI Connector</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">IEEE 1394 Connector</a>
                         </li>                       
-                        <li><a href="#"></a>
+                        <li><a href="#">Wire to Wire Connectors</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">FPC/FFC Connector</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">D-Sub Connector</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">Wire to Board Connectors</a>
                         </li>                               
-                        <li><a href="#"></a>
+                        <li><a href="#">USB Connector</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">SCSI Connector</a>
                         </li>
-                        <li><a href="#"></a>
+                        <li><a href="#">Adapter Connector</a>
                         </li>
-                        <li><a href="#"></a>
-                        </li>                              
-                        
-                        <li><a href="#"></a>
+                        <li><a href="#">I/O Connectors</a>
+                        </li>
+                        <li><a href="#">IDC Socket</a>
                         </li>                
-                
-                       
-                       
-                       
-                        <li><a href="#">Amazon亞馬遜網路商城</a>
+                        <li><a href="#">Compatible Connector</a>
                         </li>
-                        <li><a href="#">社群媒體行銷</a>
+                        <li><a href="#">Jack I/O Connectors</a>
                         </li>
-                        <li><a href="#">SEO 搜尋引擎優化</a>
+                        <li><a href="#">Plug I/O Connectors</a>
+                        </li>
+                        <li><a href="#">Board in Connectors</a>
+                        </li>  
+                        <li><a href="#">Box Header Connectors</a>
+                        </li>
+                        <li><a href="#">Centronic Connector</a>
+                        </li>
+                        <li><a href="#">Card Edge Connectors</a>
+                        </li>                 
+                        <li><a href="#">Female Header Connectors</a>
+                        </li>
+                        <li><a href="#">Pin Header Connectors</a>
+                        </li>
+                        <li><a href="#">IC Socket Connectors</a>
+                        </li>  
+                        <li><a href="#">Mini Jumper Connectors</a>
+                        </li>
+                        <li><a href="#">PLCC Socket Connectors</a>
+                        </li>
+
                             <ul>
                                 <li><a href="#">在地SEO</a>
                                 </li>
@@ -451,11 +487,11 @@
                 </li>
             </ul>
         </li>
-        <li><a href="#">Projects<br>專案訂單</a>
+        <li><a href="#">Projects 專案訂單</a>
         </li>
-        <li><a href="#">News<br>最新消息</a>
+        <li><a href="#">News 最新消息</a>
         </li>
-        <li><a href="#">Contact Us<br>與我們連繫</a>
+        <li><a href="#">Contact Us 與我們連繫</a>
         </li>
     </ul> 
                 
@@ -464,50 +500,43 @@
    </div>             
                 
                    
-                      
-                         
-                            
-                               
-                                     
-                
-                
-   
 
-
-           
-                
-                
-                
-                
-                
-                
-              <!--  <div role=navigation>
-                    <ul class="nav nav-justified">
-                        <li class=active>
-                            <a href=#>Home<br>首頁</a>
-                        <li>
-                            <a href=#>About Us<br>關於兆鈺</a>
-                        <li>
-                            <a href=#>Products<br>產品</a><li>
-                            <a href=#>Projects<br>專案訂單</a>
-                        <li>
-                            <a href=#>News<br>最新消息</a>
-                        <li>
-                            <a href=#>Contact Us<br>與我們連繫</a>
-                    </ul>
-                </div>
-            </div>-->
         
     <header>
         <ul class="slider">        <!--輪播-->
-            <li><img src="https://images.unsplash.com/photo-1447965397908-09312827f0bb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=7978bee50833f2482a4390e575a541e7" title="HELLO"></li>
-            <li><img src="https://images.unsplash.com/photo-1445503061048-e03cd48b1f11?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=1e9d385a85f7f81ea2d174c9bf6c7fd4" alt=""></li>
-            <li><img src="https://images.unsplash.com/photo-1458519488348-81c0467ebb98?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=5355cf2f4685acffba57e7971e22f576" alt=""></li>
-            <li><img src="https://images.unsplash.com/photo-1459196088695-2eef93d1c69c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1500&h=500&fit=crop&s=a21ed52d37e321f289d2d95304125dbc" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1447965397908-09312827f0bb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1700&h=600&fit=crop&s=7978bee50833f2482a4390e575a541e7" title="HELLO"></li>
+            <li><img src="https://images.unsplash.com/photo-1445503061048-e03cd48b1f11?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1700&h=600&fit=crop&s=1e9d385a85f7f81ea2d174c9bf6c7fd4" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1458519488348-81c0467ebb98?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1700&h=600&fit=crop&s=5355cf2f4685acffba57e7971e22f576" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1459196088695-2eef93d1c69c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1700&h=600&fit=crop&s=a21ed52d37e321f289d2d95304125dbc" alt=""></li>
         </ul>
+        
+        <ul class="bxslider">   <!--輪播2 *8-->
+  <li><img src="images/01.jpg" width="200" height="200"/></li>
+  <li><img src="images/02.jpg" width="200" height="200"/></li>
+  <li><img src="images/03.jpg" width="200" height="200"/></li>
+  <li><img src="images/04.jpg" width="200" height="200"/></li>
+  <li><img src="images/05.jpg" width="200" height="200"/></li>
+  <li><img src="images/06.jpg" width="200" height="200"/></li>
+  <li><img src="images/07.jpg" width="200" height="200"/></li>
+  <li><img src="images/08.jpg" width="200" height="200"/></li>
+</ul>
+            
+            
+            
+            
+            
+            
+        
+
+        
+        
+        
+        
+        
+        
     </header>    
                     
-        <div class="box"> 
+    <!--    <div class="box"> 
             <div class=col-lg-4>
 
              </div>
@@ -523,6 +552,8 @@
             <a class="btn btn-lg btn-success" href=# role=button>產品簡介</a>
             </div>
         </div>
+           
+           -->
             
         </div>   
            
@@ -622,10 +653,65 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                         
+                        <ul>
+                        <li><a href="#">DVI Connectors</a>
+                        </li>
+                        <li><a href="#">HDMI Connector</a>
+                        </li>
+                        <li><a href="#">IEEE 1394 Connector</a>
+                        </li>                       
+                        <li><a href="#">Wire to Wire Connectors</a>
+                        </li>
+                        <li><a href="#">FPC/FFC Connector</a>
+                        </li>
+                        <li><a href="#">D-Sub Connector</a>
+                        </li>
+                        <li><a href="#">Wire to Board Connectors</a>
+                        </li>                               
+                        <li><a href="#">USB Connector</a>
+                        </li>
+                        <li><a href="#">SCSI Connector</a>
+                        </li>
+                        <li><a href="#">Adapter Connector</a>
+                        </li>
+                        <li><a href="#">I/O Connectors</a>
+                        </li>
+                        <li><a href="#">IDC Socket</a>
+                        </li>                
+                        <li><a href="#">Compatible Connector</a>
+                        </li>
+                        <li><a href="#">Jack I/O Connectors</a>
+                        </li>
+                        <li><a href="#">Plug I/O Connectors</a>
+                        </li>
+                        <li><a href="#">Board in Connectors</a>
+                        </li>  
+                        <li><a href="#">Box Header Connectors</a>
+                        </li>
+                        <li><a href="#">Centronic Connector</a>
+                        </li>
+                        <li><a href="#">Card Edge Connectors</a>
+                        </li>                 
+                        <li><a href="#">Female Header Connectors</a>
+                        </li>
+                        <li><a href="#">Pin Header Connectors</a>
+                        </li>
+                        <li><a href="#">IC Socket Connectors</a>
+                        </li>  
+                        <li><a href="#">Mini Jumper Connectors</a>
+                        </li>
+                        <li><a href="#">PLCC Socket Connectors</a>
+                        </li> 
+                        
       </div>
     </div>
   </div>
+  
+  
+  
+  
+  
   
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
@@ -660,62 +746,59 @@
             <a class="btn btn-lg btn-success" href=# role=button>產品簡介</a>
             </div>
                 
-
+</div>
                
                    
                            
-            <div class=row>
+            <div class=row2>
                 <div class="col-lg-3 col-md-offset-1">
                     <h2>線材加工組裝</h2>
-                    <p class=text-danger>As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.<p>
+                    <p class=text-danger>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tel<p>xxx<p>
                     <a class="btn btn-primary" href=# role=button>View details &raquo;</a>
                 </div>
-                <div class="col-lg-3 ">
+                <div class="col-lg-3 col-md-offset-1">
                     <h2>線組加工組裝</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.<p>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.<p>xxx<p>
                     <a class="btn btn-primary" href=# role=button>View details &raquo;</a>
                 </div>
-                <div class="col-lg-3 ">
+                <div class="col-lg-3 col-md-offset-1">
                     <h2>連接器</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.<p>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.<p>xxxxxxxxxxxxxx<p>
                     <a class="btn btn-primary" href=# role=button>View details &raquo;</a>
                 </div>
-            </div>
-
-        
- 
-        
-        
-                    <div class=row>
+                
+            <div class=row2>
                 <div class="col-lg-3 col-md-offset-1">
                     <h2>最新消息</h2>
                     <p class=text-danger><h4>USB 3.0 開始量產~圓線、扁線板上母座已經正式量產，歡迎洽詢訂購!!</h4><p><p>
                     <a class="btn btn-primary" href=# role=button>更多消息 &raquo;</a>
                 </div>
-                <div class="col-lg-3 ">
+                <div class="col-lg-3 col-md-offset-1">
                     <h2>OEM/ODM專案訂單</h2>
                     <p><h4>我們提供 OEM/ODM 客製化服務，包含設計、標籤、生產、包裝、檢驗和送貨等全方位服務。</h4><p>
                     <a class="btn btn-primary" href=# role=button>更多服務介紹 &raquo;</a>
                 </div>
-                <div class="col-lg-3 ">
+                <div class="col-lg-3 col-md-offset-1">
                     <h2>與我們連繫</h2>
                     <p><h4>對於我們的產品有任何疑問？<br>歡迎來電/來信洽詢。</h4><br>
                     魏小姐<br>
                     E-mail: jawss20@jawscable.com <br>
-                    Tel: 02-8692-6686 分機16<br>
-                    Fax: 02-8692-6343<br>
+                    Tel: 02-8692-6686 分機16 Fax: 02-8692-6343<br>
                     新北市汐止區大同路二段171號3樓之3<br><br>
                     <p>
                     <a class="btn btn-primary" href=# role=button>與我們連繫 &raquo;</a>
                 </div>
+             </div>
+             
+            
             </div>
+            
+            <br><br><br><br>
             <footer class=footer>
                 <div class="logo"></div>
+                
                 <div class="copyright">
-                <p>&copy; Copyright © 兆鈺科技有限公司<br>               
-                    Tel: 02-8692-6686 Fax: 02-8692-6343<br>
-                    新北市汐止區大同路二段171號3樓之3<br>
-                    E-mail: jawss20@jawscable.com <br>
+                <p>&copy; Copyright © 兆鈺科技有限公司<br>新北市汐止區大同路二段171號3樓之3<br>Tel: 02-8692-6686 Fax: 02-8692-6343<br>E-mail: jawss20@jawscable.com <br>
                 </div>
                 <div class="menu">
                 <a href="#">About</a>
@@ -724,7 +807,9 @@
                 <a href="#">Blog</a>
                 <a href="#">Contact</a>
                 </div>
-                </footer></div>
+                </footer>
+                
+            </div>
         <script src=/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js></script>
         
         
@@ -766,10 +851,35 @@ http://www.cableassembly.com.tw/chinese/series1.htm 簡單版
 http://www.ta1989.com.tw/WIRESCABLE-category-57.html 系列
 http://www.king-lai.com.tw/ 金來
 http://www.soline.com.tw/page1.php 分類格式好
-http://www.wireharness.com.tw/index.asp?lang=1 網頁好
+http://www.wireharness.com.tw/index.asp?lang=1 網頁好***********
 http://www.chin-sheng.com.tw/ch_index.php有介紹 網頁好      
-              
+            
                      
+連接器 Connectors
+DVI Connectors
+HDMI Connector
+I/O Connectors
+IEEE 1394 Connector
+Jack I/O Connectors
+Plug I/O Connectors
+SCSI Connector
+USB Connector
+Wire to Board Connectors
+Adapter Connector
+Wire to Wire Connectors
+Board in Connectors
+FPC/FFC Connector
+Box Header Connectors
+Centronic Connector
+Card Edge Connectors
+IDC Socket
+Compatible Connector
+D-Sub Connector
+Female Header Connectors
+Pin Header Connectors
+IC Socket Connectors
+Mini Jumper Connectors
+PLCC Socket Connectors
                             
                                           -->
         
